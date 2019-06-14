@@ -1,14 +1,10 @@
 # base_carreras
 
 
-
+# Instrucciones
 Además hay que considerar estos 2 papers para definir el tema de los puntajes de corte. El paper de Hallsten es mejor.
 
-
-
 La información mínima que se requiere de las carreras para hacer el análisis con rank order logit es la siguiente:
-
-
 
 * Salario de carrera (mediana para la carrera, no nos interesa la institución)
 * Proporción mujeres en la carrera (se puede calcular con PSU matricula año anterior)
@@ -30,6 +26,7 @@ Solo si es posible incluir:
 # Filtros
 
 - Dejar universitarias con ingreso PSU
+- Dejar universidades con puntaje PSU matematica y lenguaje > 0
 
 
 # Datos
