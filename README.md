@@ -26,7 +26,7 @@ Solo si es posible incluir:
 # Filtros
 
 - Dejar universitarias con ingreso PSU
-- Dejar universidades con puntaje PSU matematica y lenguaje > 0
+- Dejar universidades con puntaje PSU matemática y lenguaje > 0
 
 
 # Datos
