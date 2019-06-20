@@ -65,6 +65,7 @@ of1_a <- left_join(x = of1,y = carreras,"NOMBRE_CARRERA")
 
 
 areascon <- of1_a %>% group_by(NOMBRE_CARRERA,ID_CARRERA,OECD_SUBAREA) %>% summarise(n=n()) 
+# -  Con esta base se pueden ordenar las áreas que necesita Andrea
 
 # NOTA: A. Canales está usando 9 categorías de área de conocimiento.
 
