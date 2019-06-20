@@ -17,6 +17,8 @@ La información mínima que se requiere de las carreras para hacer el análisis 
 * Puntaje de ultimo seleccionado-matriculado
 * Puntaje promedio de la carrera – medida de dispersión o de homogeneidad de la carrera
 
+
+
 ## Año 2016
 Solo si es posible incluir:
 
@@ -28,13 +30,13 @@ Solo si es posible incluir:
 - Dejar universitarias con ingreso PSU
 - Dejar universidades con puntaje PSU matemática y lenguaje > 0
 
-
+*** 
 # Datos
 
 - Empleabilidad, Ingresos = buscador_estadísticas_por_carrera_2018_2019
-
-
 - Año 2016 es el más relevante
+
+
 # Mi futuro - info carreras
  - % PSU
 - mifut18 <- readxl::read_excel(here("data","MiFuturo","buscador_de_carreras_2018.xlsx")) #Bases Mi Futuro 
@@ -43,9 +45,9 @@ Solo si es posible incluir:
   - Salarios
   - Empleabilidad
   - titu1   <- fread(here("data","Titulados","TITULADO_2007_al_2017_web_10072018.csv"))
-# Oferta Acaemica 
+# Oferta Académica 
    -  Arancel, Pje. Corte
-   - % PSU por cada carrera
+   - % PSU por cada carrera desde el año 2010 al 2019
    -  oferta1 <- fread(here("data","OfertaAcademica","OFICIAL_OA_2010_AL_2019_21_01_2019_V1.csv")) 
 
 # Matricula  - info Carreras 
