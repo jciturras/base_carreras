@@ -30,3 +30,14 @@ Solo si es posible incluir:
 - Dejar universitarias con ingreso PSU
 - Dejar universidades con puntaje PSU matemática y lenguaje > 0
 
+***
+
+The outcome measure investigated is field of study choice’, which was coded following UNESCO´s classification (ISCED, 2013). Because of our large data sample, we use a disaggregate definition of fields of study comprising a 14- category classification including: a) education; b) art and humanities; c) social sciences; d) economics, business and administration; e) law; f) life sciences; g) physics and chemistry (physical sciences); h) mathematics and statistics; i) computing; j) engineering; k) architecture; l) agriculture, veterinary, and environmental science; m) nursing and social work; and n) medicine and dentistry. We merged mathematics/statistics to physical sciences, since these programs are taught by the same university departments in Chile. Consequently, our analyses are conducted with 13 areas of study
+
+Codigo en Stata:
+
+label variable fieldofstudy_ "area de estudio" 
+
+label define fieldofstudy_ 1"Educacion" 2"Humanidades y Artes" 3"Ciencias sociales" 4"Ciencias de la vida" 5"Ingenieria" 6"Agricultura" 7"Salud y trabajo social" 8"Servicios" 9"Medicina" 10"Leyes" 11"Arquitectura" 12 "Administracion y Negocios" 13" Ciencias Computacion" 14"Ciencias físicas" 15"Matematicas"                                                                                                  
+
+recode fieldofstudy_ (14/15=14)
