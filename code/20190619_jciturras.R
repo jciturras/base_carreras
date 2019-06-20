@@ -64,7 +64,7 @@ of1_a <- left_join(x = of1,y = carreras,"NOMBRE_CARRERA")
 # - Ahora tenemos un ID_CARRERA independiente de la institución
 
 
-areascon <- of1 %>% group_by(AREA_CONOCIMIENTO) %>% summarise(n=n()) 
+areascon <- of1_a %>% group_by(NOMBRE_CARRERA,ID_CARRERA,OECD_SUBAREA) %>% summarise(n=n()) 
 
 # NOTA: A. Canales está usando 9 categorías de área de conocimiento.
 
