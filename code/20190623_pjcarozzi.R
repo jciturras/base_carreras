@@ -133,8 +133,26 @@ ing_emp_ncg_na <- ing_emp_u %>% filter(is.na(ID)) %>% select(1:5,Área,`Tipo de i
 ing_emp_ncg_of <- full_join(ing_emp_ncg,oferta, by = c("NCG"="AREA_CARRERA_GENERICA")) %>% filter(!is.na(ID))
 ing_emp_ncg_ofna <- full_join(ing_emp_ncg,oferta, by = c("NCG"="AREA_CARRERA_GENERICA")) %>% filter(is.na(ID)) %>% select_if(notallna)
 
-ing_emp_ncg_ofna <- mutate_at(vars(`Nombre de institución`,`Nombre carrera`),
-                              funs(chartr(paste(names(unwanted_array), collapse=''),
-                                          paste(unwanted_array, collapse=''),.)))
+ing_emp_u2 <- ing_emp_u %>% 
+  mutate_at(vars(`Nombre de institución`,`Nombre carrera`),
+            funs(chartr(paste(names(unwanted_array), collapse=''),
+                        paste(unwanted_array, collapse=''),.))) %>% 
+  mutate_at(vars(`Nombre de institución`,`Nombre carrera`),
+            funs(toupper(.))) %>% 
+  rename(NOMBRE_IES=`Nombre de institución`,
+         NOMBRE_CARRERA=`Nombre carrera`)
 
-# En vola estos se pueden recuperar al hacer cruce con carrera institucion.
+ing_emp_ncg_ofna <- ing_emp_ncg_ofna %>% left_join(.,ing_emp_u2,by=c("NOMBRE_IES","NOMBRE_CARRERA"))
+
+# Asimismo, es importante considerar que en lo que respecta a los datos a presentar este año se han
+# omitido los siguientes programas genéricos: Física y astronomía, Matemáticas y estadísticas,
+# Biología, Historia y Filosofía. Esto ante la constatación de que un alto porcentaje de los estudiantes
+# (sobre 40%) que habiendo concluido satisfactoriamente el programa, es decir, obteniendo el título
+# o grado respectivo, continúa estudiando en otros programas vinculados, sean éstos magíster,
+# doctorados u otros programas de continuidad de pregrado, tales como pedagogía. Con ello, se
+# estima que, en la práctica,se retrasa el ingreso al mercado laboral, en la medida que al año siguiente
+# a la titulación estos profesionales se encuentran, principalmente, estudiando en programas de
+# continuidad. En años anteriores, la publicación de datos para estas carreras y programas ha
+# generado confusión dada su baja empleabilidad, pero que en estos casos, refiere más a una
+# continuidad de estudios que a un resultado negativo de ingreso al mundo laboral.
+
