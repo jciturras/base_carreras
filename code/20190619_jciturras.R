@@ -169,7 +169,9 @@ test <- left_join(x = of1_a,y = mat1,"CODIGO_UNICO") # Tenemos DEMRE y CODIGO_UN
 b1 <- test %>% group_by(DEMRE) %>% summarise(n=n()) %>% filter(n>=2)
 b1 <- as.data.frame(b1)
 b2 <- test %>% filter(DEMRE %in% b1$DEMRE)
-b21 <- b2[c(19,22,32,70,71,71)]
+b21 <- b2[c(19,22,32,70,71,71)] # Duplicados
+
+fwrite(x = b21,here("duplicados.csv"),sep = ";")
 
 
 
